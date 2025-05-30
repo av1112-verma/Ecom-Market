@@ -29,13 +29,16 @@ footer {
 footer .footer_item a {
     text-decoration: none;
     cursor: pointer;
-    color: #111;
+    color: #fff;
 }
 footer .footer_item .footer_heading {
     font-size: 18px;
     font-weight: 600;
-    color: #111;
+    color: #fff;
     margin-bottom: 10px;
+}
+.footer_item {
+    color: #fff;
 }
 footer .footer_item ul {
     list-style: none;
@@ -91,4 +94,96 @@ footer .footer_item .nav-link {
     align-items: flex-start;
     justify-content: center;
     height: 100%;
+}
+.service_offer {
+    background: url(https://www.businessresearchinsights.com/assets/img/Service-we-provide.webp) center center / cover fixed;
+    padding: 90px 0;
+    color: #fff;
+}
+.service_offer .service_card {
+    background-color: #fff !important;
+    margin-bottom: 20px;
+    color: #111;
+    border-radius: 15px !important;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.service_offer .service_card a {
+    text-align: right !important;
+    color: #111;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    display: inline-block;
+    width: 100%;
+}   
+.section_heading {
+    font-size: 32px;
+    text-align: center;
+    position: relative;
+    line-height: 40px;
+    width: fit-content;
+    margin: 0 auto 30px;
+    padding: 0 25px 10px;
+}
+.section_heading::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 5px;
+    background-color: #fff;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    display: flex;
+    right: 0;
+    border-radius: 7px;
+}
+.industry_career {
+    background-color: #fff;
+    padding: 50px 0;
+        background: url(https://dosrg0qttcg52.cloudfront.net/css/img/business-bg.svg) center center / cover fixed;
+}
+.industry_career .nav-pills {
+    flex-direction: column;
+}
+.industry_career .nav-pills .nav-item {
+    padding: 10px;
+    border-bottom: 1px solid #111;
+}
+.industry_data_cards .indusrty_card_item {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #8f8f8f;
+    border-radius: 10px;
+    height: 190px;
+}
+.industry_data_cards .indusrty_card_item h5 {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 26px;
+    margin-bottom: 10px;
+}
+.industry_data_cards .indusrty_card_item span {
+    font-size: 14px;
+    font-weight: 400;
+    color: #999;
+    margin-bottom: 5px;
+}
+.industry_data_cards .indusrty_card_item p {
+        display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    margin: 5px 0 0;
+}
+.industry_career .nav-pills .nav-item .nav-link {
+    color: #fff !important;
+    font-size: 26px;
+    font-weight: 500;
+}
+.industry_career .nav-pills .nav-item .nav-link.active {
+    background-color: #fff;
+    color: #0b7aa0 !important;
+    width: 100%;
+    margin: 0;
 }
