@@ -77,6 +77,38 @@ const Home = () => {
         publishedDate: "May 2025",
         paragraph: "Solvent Cement Market, By Product Type (PVC Solvent Cement, CPVC Solvent Cement, ABS Solvent Cement)..."
       }
+    ],
+    publishDate: [
+      {
+        heading: "Ammonium Perchlorate Market",
+        publishedDate: "May 2025",
+        paragraph: "Ammonium Perchlorate Market, By Grade (Industrial Grade, Reagent Grade, and Other)..."
+      },
+      {
+        heading: "Phosphate Rock Market",
+        publishedDate: "May 2025",
+        paragraph: "Phosphate Rock Market, By Type (Sedimentary Phosphate Rock and Igneous Phosphate)..."
+      },
+      {
+        heading: "Agricultural Nanotechnology Market",
+        publishedDate: "May 2025",
+        paragraph: "Agricultural Nanotechnology Market, By Type (Nano-Pesticides, Nano-Herbicides, Nano-Fertilizers)..."
+      },
+      {
+        heading: "Commercial Floorings Market",
+        publishedDate: "May 2025",
+        paragraph: "Commercial Floorings Market, By Product (Ceramics, Vitrified (Porcelain), Carpet, Wood)..."
+      },
+      {
+        heading: "Chemical Fungicides Market",
+        publishedDate: "May 2025",
+        paragraph: "Chemical Fungicides Market, By Product Type (Triazoles, Strobilurins, Chloronitriles)..."
+      },
+      {
+        heading: "Solvent Cement Market",
+        publishedDate: "May 2025",
+        paragraph: "Solvent Cement Market, By Product Type (PVC Solvent Cement, CPVC Solvent Cement, ABS Solvent Cement)..."
+      }
     ]
   };
 
@@ -240,7 +272,7 @@ const Home = () => {
                 <div class="tab-pane fade" id="other" role="tabpanel" aria-labelledby="other-tab" tabindex="0">
                   <div className="industry_data_cards">
                     <div className="row">
-                      {industryData.chemicalsAndMaterials.map((item, index) => (
+                      {industryData.publishDate.map((item, index) => (
                         <div className="col-md-6 mb-3" key={index}>
                           <div className="indusrty_card_item">
                             <h5 className="fw-bold">{item.heading}</h5>
