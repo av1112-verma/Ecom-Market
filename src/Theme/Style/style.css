@@ -115,7 +115,7 @@ footer .footer_item .nav-link {
     font-weight: 500;
     display: inline-block;
     width: 100%;
-}   
+}
 .section_heading {
     font-size: 32px;
     text-align: center;
@@ -186,4 +186,8 @@ footer .footer_item .nav-link {
     color: #0b7aa0 !important;
     width: 100%;
     margin: 0;
+}
+._ad_img{
+    height: 100% !important;
+    object-fit: cover;
 }
