@@ -20,15 +20,17 @@ const Header = () => {
       {/* Top Contact Bar */}
       <div className="top-header d-flex justify-content-between align-items-center px-3 py-2 text-white">
         <div className="contact-info d-flex gap-4 align-items-center">
-          <span>
-            🇺🇸 <i className="fa fa-phone"></i> +1 812 506 4440
-          </span>
-          <span>
-            🇮🇳 <i className="fa fa-phone"></i> +91 7875074426
-          </span>
-          <span>
+          <Link to={"tel:+18125064440"}>
+            <img src="https://flagcdn.com/us.svg" alt="US Flag" width="20" /> 
+            <i className="fa fa-phone ms-2 me-0"></i> +1 812 506 4440
+          </Link>
+          <Link to={"tel:+917875074426"}>
+            <img src="https://flagcdn.com/in.svg" alt="India Flag" width="20" /> 
+            <i className="fa fa-phone ms-2 me-0"></i> +91 7875074426
+          </Link>
+          <Link to={"mail:sales@econmarketresearch.com"}>
             <i className="fa fa-envelope"></i> sales@econmarketresearch.com
-          </span>
+          </Link>
         </div>
         <div className="social-icons d-flex gap-2">
           <Link to={"/"}><FaFacebook className="social-icon" /></Link>

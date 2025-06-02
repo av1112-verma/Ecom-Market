@@ -45,6 +45,11 @@
     max-width: 300px;
     width: 100%;
 }
+.contact-info a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+}
 .search_header input {
     border-radius: 30px;
 }
@@ -226,4 +231,32 @@ footer .footer_item .nav-link {
     color: #0b7aa0 !important;
     width: 100%;
     margin: 0;
+}
+.carousel-inner .carousel-item img {
+    height: 500px;
+    object-fit: cover;
+    object-position: top;
+} 
+.carousel-inner .carousel-item .carousel-caption {
+    left: 10%;
+    text-align: left;
+    top: 30%;
+    background-color: #4b4b4be0;
+    height: max-content;
+    width: fit-content;
+    padding: 50px;
+    border-radius: 20px;
+    border: 1px solid #d6d6d6;
+}
+.carousel-inner .carousel-item .carousel-caption h5 {
+    font-size: 30px;
+    line-height: 40px;
+    font-weight: 700;
+    color: #fff;
+}
+.carousel-inner .carousel-item .carousel-caption p {
+    font-size: 18px;
+    line-height: 24px;
+    color: #d6d6d6;
+    margin-bottom: 15px;
 }

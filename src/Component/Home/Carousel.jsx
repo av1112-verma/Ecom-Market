@@ -24,7 +24,7 @@ const Carousel = () => {
     //         <img src={url} className="d-block w-100" alt={`Slide ${index + 1}`} />
     //         <div className="carousel-caption d-none d-md-block">
     //           <h5>Image {index + 1}</h5>
-    //           <p>Sample Picsum photo</p>
+    //           <p>22858 reports across 100+ industry segments exhaustively covered.</p>
     //         </div>
     //       </div>
     //     ))}
@@ -50,7 +50,66 @@ const Carousel = () => {
     //     <span className="visually-hidden">Next</span>
     //   </button>
     // </div>
-    <video src="https://cdn.shopify.com/videos/c/o/v/9d23868108ee40d29369c2fb4fee8e11.mp4" loop="" autoplay="" muted="muted" playsinline="" controlslist="nodownload" className="video_banner"></video>
+    // <video src="https://cdn.shopify.com/videos/c/o/v/9d23868108ee40d29369c2fb4fee8e11.mp4" loop="" autoplay="" muted="muted" playsinline="" controlslist="nodownload" className="video_banner"></video>
+
+
+       <div
+  id="carouselExampleAutoplaying"
+  className="carousel slide"
+  data-bs-ride="carousel"
+>
+  <div className="carousel-inner">
+    <div className="carousel-item active">
+      <img src="Images/ecom_banner_1.jpg" className="d-block w-100" alt="Slide 1" />
+      <div className="carousel-caption d-none d-md-block">
+        <h5>Precise market intelligence and advisory.</h5>
+        <p>22858 reports across 100+ industry segments exhaustively covered.</p>
+      </div>
+    </div>
+    <div className="carousel-item">
+      <img src="Images/ecom_banner_2.jpg" className="d-block w-100" alt="Slide 2" />
+      <div className="carousel-caption d-none d-md-block">
+        <h5>Precise market intelligence and advisory.</h5>
+        <p>22858 reports across 100+ industry segments exhaustively covered.</p>
+      </div>
+    </div>
+    <div className="carousel-item">
+      <img src="Images/ecom_banner_3.jpg" className="d-block w-100" alt="Slide 3" />
+      <div className="carousel-caption d-none d-md-block">
+        <h5>Precise market intelligence and advisory.</h5>
+        <p>22858 reports across 100+ industry segments exhaustively covered.</p>
+      </div>
+    </div>
+    <div className="carousel-item">
+      <img src="Images/ecom_banner_4.jpg" className="d-block w-100" alt="Slide 4" />
+      <div className="carousel-caption d-none d-md-block">
+        <h5>Precise market intelligence and advisory.</h5>
+        <p>22858 reports across 100+ industry segments exhaustively covered.</p>
+      </div>
+    </div>
+  </div>
+
+  <button
+    className="carousel-control-prev"
+    type="button"
+    data-bs-target="#carouselExampleAutoplaying"
+    data-bs-slide="prev"
+  >
+    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span className="visually-hidden">Previous</span>
+  </button>
+
+  <button
+    className="carousel-control-next"
+    type="button"
+    data-bs-target="#carouselExampleAutoplaying"
+    data-bs-slide="next"
+  >
+    <span className="carousel-control-next-icon" aria-hidden="true"></span>
+    <span className="visually-hidden">Next</span>
+  </button>
+</div>
+
   );
 };
 
