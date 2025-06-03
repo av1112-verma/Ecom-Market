@@ -12,6 +12,9 @@ import Report from './Pages/Report';
 import CustomSearch from './Pages/Custom-Search';
 import Subscription from './Pages/Subscription';
 import Career from './Pages/Career';
+import Login from './Pages/Login';
+import Signup from './Pages/Signup';
+import ForgotPassword from './Pages/ForgotPassword';
 
 
 function App() {
@@ -26,6 +29,9 @@ function App() {
         <Route path="/subscription" element={<Subscription />} />
         <Route path="/career" element={<Career />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/forfot-password" element={<ForgotPassword />} />
       </Routes>
       <Footer />
     </Router>
