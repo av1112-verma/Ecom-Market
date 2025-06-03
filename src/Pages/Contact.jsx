@@ -2,55 +2,50 @@ import React from 'react'
 
 const Contact = () => {
   return (
-    <section className="our_client py-3 py-5">
-      <div className="container">
-        <div className="row">
-          {/* Left Column: Image */}
-          <div className="col-lg-6 mb-4 mb-lg-0">
-            <img
-              src="/images/contactus.jpg"
-              alt="Contact Us"
-              className="img-fluid rounded shadow _ad_img"
-            />
-          </div>
-
-          {/* Right Column: Contact Form */}
-          <div className="col-lg-6">
-            <div className="card shadow-sm">
-              <div className="card-body">
-                <h3 className="card-title mb-4 text-center">Contact Us</h3>
-                <form action="#" method="post">
-                  <div className="mb-3">
-                    <label htmlFor="name" className="form-label">Name</label>
-                    <input type="text" className="form-control" id="name" name="name" required />
-                  </div>
-
-                  <div className="mb-3">
-                    <label htmlFor="email" className="form-label">Email</label>
-                    <input type="email" className="form-control" id="email" name="email" required />
-                  </div>
-
-                  <div className="mb-3">
-                    <label htmlFor="subject" className="form-label">Subject</label>
-                    <input type="text" className="form-control" id="subject" name="subject" required />
-                  </div>
-
-                  <div className="mb-3">
-                    <label htmlFor="message" className="form-label">Message</label>
-                    <textarea className="form-control" id="message" name="message" rows="5" required></textarea>
-                  </div>
-
-                  <div className="d-grid">
-                    <button type="submit" className="btn btn-primary">Send Message</button>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
+    <div>
+      <div class="text-center p-5 light-bg">
+        <div class="contact_content_section">
+          <p class="text-center">Contact</p>
+          <h1 class="p-heading text-center">Fill out the form to be contacted by a member  of the Ecom team.</h1>
         </div>
       </div>
-    </section>
-  );
-};
+      <div class="box p-5 my-5 mx-auto contact_form_section light-bg">
+        <form class="contact_form_section">
+          <div class="row flex flex-wrap mb-3">
+            <div class="col-md-6 px-3">
+              <label class="d-block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">First Name</label>
+              <input class="appearance-none d-block w-100 bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Enter First Name" />
+            </div>
+            <div class="col-md-6 px-3">
+              <label class="d-block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">Email Address</label>
+              <input class="appearance-none d-block w-100 bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Email Address" />
+            </div>
+          </div>
+          <div class="row flex flex-wrap mb-3">
+            <div class="col-12 px-3">
+              <label class="d-block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">Subject</label>
+              <input class="appearance-none d-block w-100 bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Subject" />
+            </div>
+          </div>
+          <div class="row flex flex-wrap mb-3">
+            <div class="col-12 px-3">
+              <label class="d-block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">Message</label>
+              <textarea class="appearance-none d-block w-100 bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 textarea" placeholder="Enter a message"></textarea>
+            </div>
+          </div>
+          <div class="flex flex-wrap -mx-3 mb-2">
+            <div class="col-12 px-1">
+              <div className="d-flex gap-2 align-items-center mb-3">
+                <input type="checkbox" name='grid-state' id='grid-state' />
+                <label class="d-block uppercase tracking-wide text-gray-700 text-xs font-bold" for="grid-state">I agree with Prasasti Privacy Policy</label>
+              </div>
+              <a href="/contact-us" class="submit_btn" type='button'>Submit</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  )
+}
 
 export default Contact
