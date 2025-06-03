@@ -18,7 +18,7 @@ const Footer = () => {
     <footer className="py-3 py-md-5">
       <div className="container">
         <div className="row">
-          <div className='col-md-4'>
+          <div className='col-6 col-md-4'>
             <div className="footer_item">
               <h3 className="footer_heading">LINKS</h3>
               <ul className="list-unstyled">
@@ -33,7 +33,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className='col-md-4'>
+          <div className='col-6 col-md-4'>
             <div className="footer_item">
               <h3 className="footer_heading">CONTACT</h3>
               <p>11th Floor, Rajapushpa Summit<br />

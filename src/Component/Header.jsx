@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { FaInstagram, FaTwitter, FaLinkedinIn } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
 
@@ -8,7 +8,7 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsSticky(window.scrollY > 10); 
+      setIsSticky(window.scrollY > 10);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -19,13 +19,13 @@ const Header = () => {
     <>
       {/* Top Contact Bar */}
       <div className="top-header d-flex justify-content-between align-items-center px-3 py-2 text-white">
-        <div className="contact-info d-flex gap-4 align-items-center">
+        <div className="contact-info d-flex gap-sm-4 align-sm-items-center">
           <Link to={"tel:+18125064440"}>
-            <img src="https://flagcdn.com/us.svg" alt="US Flag" width="20" /> 
+            <img src="https://flagcdn.com/us.svg" alt="US Flag" width="20" />
             <i className="fa fa-phone ms-2 me-0"></i> +1 812 506 4440
           </Link>
           <Link to={"tel:+917875074426"}>
-            <img src="https://flagcdn.com/in.svg" alt="India Flag" width="20" /> 
+            <img src="https://flagcdn.com/in.svg" alt="India Flag" width="20" />
             <i className="fa fa-phone ms-2 me-0"></i> +91 7875074426
           </Link>
           <Link to={"mail:sales@econmarketresearch.com"}>
@@ -54,30 +54,51 @@ const Header = () => {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav m-auto mb-2 mb-lg-0">
+            <ul className="navbar-nav m-auto mb-2 mb-lg-0 gap-2">
               <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/">Home</Link>
+                <NavLink className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} to="/">Home</NavLink>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/report">Report</Link>
+                <NavLink className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} to="/report">Report</NavLink>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/custom_search">Custom Search</Link>
+                <NavLink className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} to="/custom_search">Custom Search</NavLink>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/about">About</Link>
+                <NavLink className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} to="/about">About</NavLink>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/subscription">Subscription</Link>
+                <NavLink className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} to="/subscription">Subscription</NavLink>
+              </li>
+              <li className="nav-item dropdown">
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? "nav-link dropdown-toggle " : "nav-link dropdown-toggle active" 
+                  }
+                  to="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Insights
+                </NavLink>
+                <ul className="dropdown-menu">
+                  <li>
+                    <NavLink className="dropdown-item" to="/press_release">Press Release</NavLink>
+                  </li>
+                  <li>
+                    <NavLink className="dropdown-item" to="/blog">Blog</NavLink>
+                  </li>
+                </ul>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/career">Careers</Link>
+                <NavLink className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} to="/career">Careers</NavLink>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/contact">Contact</Link>
+                <NavLink className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} to="/contact">Contact</NavLink>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/login">Login</Link>
+                <NavLink className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} to="/login">Login</NavLink>
               </li>
             </ul>
             <form className="search_header" role="search">
