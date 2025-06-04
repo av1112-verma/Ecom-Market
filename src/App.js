@@ -9,13 +9,14 @@ import About from './Pages/About';
 import Contact from './Pages/Contact';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-import Report from './Pages/Report';
+import Services from './Pages/Services';
 import CustomSearch from './Pages/Custom-Search';
 import Subscription from './Pages/Subscription';
 import Career from './Pages/Career';
 import Login from './Pages/Login';
 import Signup from './Pages/Signup';
 import ForgotPassword from './Pages/ForgotPassword';
+import Blog from './Pages/Blog';
 
 
 function App() {
@@ -24,7 +25,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/report" element={<Report />} />
+        <Route path="/service" element={<Services />} />
         <Route path="/custom_search" element={<CustomSearch />} />
         <Route path="/about" element={<About />} />
         <Route path="/subscription" element={<Subscription />} />
@@ -33,6 +34,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/forfot-password" element={<ForgotPassword />} />
+        <Route path="/blog" element={<Blog />} />
       </Routes>
       <Footer />
     </Router>
