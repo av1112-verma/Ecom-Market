@@ -9,20 +9,36 @@ const AboutSection = () => {
         <div className="container text-center">
           <div className="d-flex align-items-center gap-3">
             <img src="Images/coat-07.webp" alt="Tie Icon" className="mb-4" style={{ maxWidth: "100px" }} />
-            <h2 className="fw-bold text-primary">About ECOM MARKET Insights</h2>
+            <h2 className="fw-bold text-primary">About MetricWave Insights</h2>
           </div>
-          <p className="text-muted mb-5">
-            The cycle of disruption and transformation is imminent for MARKETes looking to carve
-            out a niche in highly competitive environments. While a few companies are focusing on
-            transformational growth and addressing key challenges of disruptions, several others
-            are simply unaware. At ECOM MARKET Insights we offer end-to-end solutions beyond
-            flagship research technologies to help senior leaders across enterprises achieve their
-            mission-critical goals. We deliver recommendations enabling growth to help build
-            organizations of tomorrow.
+          <p className="text-muted">
+            MetricWave Insights is a world leader in competitive intelligence, market research, and strategic data
+            analytics. At our core, we are insight-driven growth enablers, allowing organizations to navigate market
+            complexity and make accurate, timely, and intelligent business decisions. Our international clients
+            comprise Fortune 1000 firms, high-growth startups, consulting organizations, institutional investors,
+            public sector organizations, and innovation hubs.
+          </p>
+          <p className="text-muted">
+            With a multidisciplinary team of industry experts, economists, data scientists, and research consultants,
+            MetricWave Insights provides both custom and syndicated research solutions designed to meet the
+            unique needs of each client. Our method is characterized by our unwavering pursuit of relevance, our
+            exacting approach, and our dedication to providing business intelligence that delivers actual-world
+            results.
+          </p>
+          <p className="text-muted">
+            Whether your goal is to launch a new product, penetrate a new market, evaluate investment risk,
+            understand customer behavior, or track competitor strategy, we offer the insight foundation you need
+            to take action with confidence and clarity.
+          </p>
+          <p className="text-muted">
+            At MetricWave Insights, we feel that insight without relevance has no use. That is why our philosophy
+            revolves around providing decision-grade intelligence that is pragmatic, industry-focused, and bespoke
+            to your specific business goals. We move beyond descriptive reports to provide predictive and
+            prescriptive insights that influence strategies, guide policies, and influence investments.
           </p>
 
           <h5 className="text-uppercase text-start fw-bold text-primary mb-4">
-            At ECOM MARKET Insights We Believe In:
+            At MetricWave Insights We Believe In:
           </h5>
           <div className="text-start">
             <p>
@@ -54,7 +70,7 @@ const AboutSection = () => {
       </section>
       <section className="why-us-section text-dark">
         <div className="bg-primary text-white py-4 text-center d-flex align-items-center gap-3 justify-content-center">
-          <h2 className="fw-bold mb-0">Why ECOM MARKET Insights</h2>
+          <h2 className="fw-bold mb-0">Why MetricWave Insights</h2>
           <FaQuestion style={{ fontSize: "24px" }} />
         </div>
 
@@ -62,12 +78,12 @@ const AboutSection = () => {
           <div className="row gy-4">
             <div className="col-md-6">
               <div className="team_result_card">
-              <h5 className="text-info fw-bold">Result-oriented Team</h5>
-              <p>
-                Our team, consisting of seasoned analysts and researchers, adopts industry-leading
-                research techniques to create all-encompassing reports. We nurture a result-oriented
-                team, offering forward-thinking insights.
-              </p>
+                <h5 className="text-info fw-bold">Result-oriented Team</h5>
+                <p>
+                  Our team, consisting of seasoned analysts and researchers, adopts industry-leading
+                  research techniques to create all-encompassing reports. We nurture a result-oriented
+                  team, offering forward-thinking insights.
+                </p>
               </div>
             </div>
             <div className="col-md-6">

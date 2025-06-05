@@ -15,6 +15,34 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const industryLinks1 = [
+  { id: 1, menuTitle: "Agriculture", menuLink: "/industry-detail/agriculture" },
+  { id: 2, menuTitle: "Automobile and Transportation", menuLink: "/industry-detail/automobile-and-transportation" },
+  { id: 3, menuTitle: "Aerospace and Defense", menuLink: "/industry-detail/aerospace-and-defense" },
+  { id: 4, menuTitle: "Biotechnology", menuLink: "/industry-detail/biotechnology" },
+  { id: 5, menuTitle: "Chemical and Material", menuLink: "/industry-detail/chemical-and-material" },
+  { id: 6, menuTitle: "Consumer Goods and Services", menuLink: "/industry-detail/consumer-goods-and-services" },
+  { id: 7, menuTitle: "Construction and Real Estate", menuLink: "/industry-detail/construction-and-real-estate" },
+  { id: 8, menuTitle: "Electronics and Semiconductor", menuLink: "/industry-detail/electronics-and-semiconductor" },
+  { id: 9, menuTitle: "Energy and Power", menuLink: "/industry-detail/energy-and-power" },
+  { id: 10, menuTitle: "Education and Training", menuLink: "/industry-detail/education-and-training" },
+  { id: 11, menuTitle: "Food and Beverages", menuLink: "/industry-detail/food-and-beverages" }
+]
+const industryLinks2 = [
+ { id: 12, menuTitle: "Financial Services", menuLink: "/industry-detail/financial-services" },
+  { id: 13, menuTitle: "Information Technology and Telecom", menuLink: "/industry-detail/information-technology-and-telecom" },
+  { id: 14, menuTitle: "Industrial and Manufacturing", menuLink: "/industry-detail/industrial-and-manufacturing" },
+  { id: 15, menuTitle: "Insurance", menuLink: "/industry-detail/insurance" },
+  { id: 16, menuTitle: "Machinery and Equipment", menuLink: "/industry-detail/machinery-and-equipment" },
+  { id: 17, menuTitle: "Medical Devices", menuLink: "/industry-detail/medical-devices" },
+  { id: 18, menuTitle: "Media and Entertainment", menuLink: "/industry-detail/media-and-entertainment" },
+  { id: 19, menuTitle: "Pharma and Healthcare", menuLink: "/industry-detail/pharma-and-healthcare" },
+  { id: 20, menuTitle: "Packaging", menuLink: "/industry-detail/packaging" },
+  { id: 21, menuTitle: "Travel, Tourism & Hospitality", menuLink: "/industry-detail/travel-tourism-and-hospitality" },
+  { id: 22, menuTitle: "Sports and Athletics", menuLink: "/industry-detail/sports-and-athletics" }
+]
+
+
   return (
     <>
       {/* Top Contact Bar */}
@@ -41,7 +69,7 @@ const Header = () => {
       </div>
       <nav className={`navbar navbar-expand-lg py-3 sticky-top shadow-sm ${isSticky ? "scrolled-header" : ""}`}>
         <div className="container-fluid">
-          <Link className="navbar-brand" to="/">ECON MARKET</Link>
+          <Link className="navbar-brand" to="/"><img src="Images/web_logo_s.png" alt="" /></Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -58,18 +86,9 @@ const Header = () => {
               <li className="nav-item">
                 <NavLink className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} to="/">Home</NavLink>
               </li>
-              <li className="nav-item">
-                <NavLink className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} to="/service">Services</NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} to="/custom_search">Custom Search</NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} to="/about">About</NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} to="/subscription">Subscription</NavLink>
-              </li>
+              {/* <li className="nav-item">
+                <NavLink className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} to="/industries">Industries</NavLink>
+              </li> */}
               <li className="nav-item dropdown">
                 <NavLink
                   className={({ isActive }) =>
@@ -80,23 +99,48 @@ const Header = () => {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Insights
+                  Industries
                 </NavLink>
                 <ul className="dropdown-menu">
-                  <li>
-                    <NavLink className="dropdown-item" to="/press_release">Press Release</NavLink>
+                  <li className="sub_dropdown">
+                    <ul>
+                      {industryLinks1.map((menu, idx) => (
+                        <li key={idx}>
+                          <Link className="dropdown-item industry_link" id={menu.id} to="/industry-detail">
+                            {menu.menuTitle}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
                   </li>
-                  <li>
-                    <NavLink className="dropdown-item" to="/blog">Blog</NavLink>
+                  <li className="sub_dropdown">
+                    <ul>
+                      {industryLinks2.map((menu, idx) => (
+                        <li key={idx}>
+                          <Link className="dropdown-item industry_link" id={menu.id} to="/industry-detail">
+                            {menu.menuTitle}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
                   </li>
                 </ul>
               </li>
               <li className="nav-item">
-                <NavLink className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} to="/career">Careers</NavLink>
+                <NavLink className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} to="/service">Services</NavLink>
+              </li>
+              <li>
+                <NavLink className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} to="/press_release">Press Release</NavLink>
+              </li>
+              <li>
+                <NavLink className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} to="/blog">Blog</NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} to="/contact">Contact</NavLink>
+                <NavLink className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} to="/about">About Us</NavLink>
               </li>
+              <li className="nav-item">
+                <NavLink className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} to="/contact">Contact Us</NavLink>
+              </li>              
               <li className="nav-item">
                 <NavLink className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} to="/login">Login</NavLink>
               </li>
