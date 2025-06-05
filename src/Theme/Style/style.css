@@ -37,6 +37,13 @@ a.navbar-brand img {
     border-color: #06557f !important;
 }
 
+.alert.alert-success {
+    position: fixed;
+    top: 50px;
+    right: 0;
+    z-index: 99999999;
+}
+
 .social-icon {
   color: #fff;
   /* background-color: #0d6efd; */

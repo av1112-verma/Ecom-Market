@@ -1,7 +1,53 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from "react-router-dom";
 
 const SignUp = () => {
+
+    const [formData, setFormData] = useState({
+        email: '',
+        mobile_no: '',
+        address: '',
+        password: '',
+        name: ""
+    });
+
+    const [loading, setLoading] = useState(false);
+    const [message, setMessage] = useState('');
+
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setLoading(true);
+        setMessage('');
+
+        try {
+            const response = await fetch('https://test.pearl-developer.com/econ-market/api/user/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            const data = await response.json();
+            console.log("API Response:", data);
+
+            if (data.errors) {
+                const messages = Object.values(data.errors).flat().join(' ');
+                setMessage(messages);
+            } else {
+                setMessage(data.message || 'Signup failed.');
+            }
+        } catch (error) {
+            console.error("Signup Error:", error.message);
+            setMessage(error.message || "Signup failed.");
+        }
+        setLoading(false);
+    };
+
     return (
         <>
             <section className=''>
@@ -17,48 +63,57 @@ const SignUp = () => {
                     <div class="container">
                         <div class="row add-backgroun">
                             <div class="col-lg-8 m-auto">
-                                <form action="#" method="POST" id="dreamit-form">
-                                    <div class="single-contact-form">
-                                        <div class="contact-content">
+                                <form onSubmit={handleSubmit}>
+                                    <div className="single-contact-form">
+                                        <div className="contact-content">
                                             <h4>Signup</h4>
                                         </div>
-                                        <div class="single-input-box">
-                                            <input type="text" name="email" placeholder="Enter Your email" required="" />
+                                        <div className="single-input-box">
+                                            <input type="text" name="name" placeholder="Enter Your Name" value={formData.name} onChange={handleChange} required />
                                         </div>
-                                        <div class="single-input-box">
-                                            <input type="text" name="phone" placeholder="Enter Your Phone Number" required="" />
+                                        <div className="single-input-box">
+                                            <input type="email" name="email" placeholder="Enter Your Email" value={formData.email} onChange={handleChange} required />
                                         </div>
-                                        <div class="single-input-box">
-                                            <input type="text" name="address" placeholder="Enter Your Address" required="" />
+                                        <div className="single-input-box">
+                                            <input type="text" name="mobile_no" placeholder="Enter Your Phone Number" value={formData.mobile_no} onChange={handleChange} required />
                                         </div>
-                                        <div className="single-input-box position-relative" style={{ position: "relative" }}>
-                                            <input
-                                                type="password"
-                                                id="password"
-                                                name="password"
-                                                placeholder="********"
-                                                required
-                                            />
+                                        <div className="single-input-box">
+                                            <input type="text" name="address" placeholder="Enter Your Address" value={formData.address} onChange={handleChange} required />
                                         </div>
+                                        <div className="single-input-box position-relative">
+                                            <input type="password" name="password" placeholder="********" value={formData.password} onChange={handleChange} required />
+                                        </div>
+
                                         <div className="d-flex align-items-center justify-content-between">
                                             <label>
                                                 <input type="checkbox" defaultChecked name="remember" /> Remember me
                                             </label>
                                             <span className="psw">
-                                               {" "}
-                                                <Link to="/forgot-password"
-                                                    style={{ color: "#ff6600",textDecoration:"none" }}
-                                                >
-                                                     Forgot password?
+                                                <Link to="/forgot-password" style={{ color: "#ff6600", textDecoration: "none" }}>
+                                                    Forgot password?
                                                 </Link>
                                             </span>
                                         </div>
+
                                         <div className="single-input-box">
-                                            <button type="submit">Signup</button>
+                                            <button type="submit" disabled={loading}>{loading ? 'Signing up...' : 'Signup'}</button>
                                         </div>
-                                        <span className='psw text-white'>Already have an Account <Link to="/login"  style={{ color: "#ff6600",textDecoration:"none" }}>Login</Link></span>
+
+                                        <span className="psw text-white">
+                                            Already have an Account? <Link to="/login" style={{ color: "#ff6600", textDecoration: "none" }}>Login</Link>
+                                        </span>
+
+                                        {message && (
+                                            // <div style={{ marginTop: '10px', color: message.includes('successful') ? 'green' : 'red' }}>
+                                            //     {message}
+                                            // </div>
+                                            <div class="alert alert-success" role="alert">
+                                               {message}
+                                            </div>
+                                        )}
                                     </div>
                                 </form>
+
                                 <div id="status"></div>
                             </div>
                         </div>
