@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink ,useNavigate  } from "react-router-dom";
 import { FaInstagram, FaTwitter, FaLinkedinIn } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
 
@@ -15,7 +15,30 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const industryLinks1 = [
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
+
+  // Check login status from localStorage on load
+  useEffect(() => {
+    const loginStatus = localStorage.getItem("isLoggedIn");
+    setIsLoggedIn(loginStatus === "true");
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("isLoggedIn");
+    setIsLoggedIn(false);
+    navigate('/login');
+  };
+   useEffect(()=>{
+
+    if(localStorage.getItem('isLoggedIn') === true)
+    {
+      setIsLoggedIn(true);
+    }
+
+  },[])
+
+const industryLinks1 = [
   { id: 1, menuTitle: "Agriculture", menuLink: "/industry-detail/agriculture" },
   { id: 2, menuTitle: "Automobile and Transportation", menuLink: "/industry-detail/automobile-and-transportation" },
   { id: 3, menuTitle: "Aerospace and Defense", menuLink: "/industry-detail/aerospace-and-defense" },
@@ -42,6 +65,7 @@ const industryLinks2 = [
   { id: 22, menuTitle: "Sports and Athletics", menuLink: "/industry-detail/sports-and-athletics" }
 ]
 
+ 
 
   return (
     <>
@@ -86,9 +110,6 @@ const industryLinks2 = [
               <li className="nav-item">
                 <NavLink className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} to="/">Home</NavLink>
               </li>
-              {/* <li className="nav-item">
-                <NavLink className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} to="/industries">Industries</NavLink>
-              </li> */}
               <li className="nav-item dropdown">
                 <NavLink
                   className={({ isActive }) =>
@@ -141,9 +162,44 @@ const industryLinks2 = [
               <li className="nav-item">
                 <NavLink className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} to="/contact">Contact Us</NavLink>
               </li>              
-              <li className="nav-item">
-                <NavLink className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} to="/login">Login</NavLink>
-              </li>
+              {!isLoggedIn ? (
+                <li className="nav-item">
+                  <NavLink
+                    className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
+                    to="/login"
+                  >
+                    Login
+                  </NavLink>
+                </li>
+              ) : (
+                  <li className="nav-item dropdown profile_menu">
+                    <NavLink
+                      className={({ isActive }) =>
+                        isActive ? "nav-link dropdown-toggle" : "nav-link dropdown-toggle active"
+                      }
+                      to="#"
+                      role="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      Profile
+                    </NavLink>
+                    <ul className="dropdown-menu">
+                      <li className="sub_dropdown w-100">
+                        <ul>
+                          <li className="w-100">
+                            <NavLink to="/profile" style={{textDecoration:"none"}}><img src="https://cdn-icons-png.flaticon.com/128/3135/3135715.png" alt="" />Profile</NavLink>
+                          </li>
+                          <li className="w-100">
+                            <button className="dropdown-item industry_link" onClick={handleLogout}>
+                              Logout
+                            </button>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                )}
             </ul>
             <form className="search_header" role="search">
               <input

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState ,useEffect } from 'react'
 import { Link } from "react-router-dom";
 
 const SignUp = () => {
@@ -11,42 +11,62 @@ const SignUp = () => {
         name: ""
     });
 
+    
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState('');
+    
+    useEffect(() => {
+    if (message) {
+        const timer = setTimeout(() => {
+            setMessage('');
+        }, 5000); 
 
+        return () => clearTimeout(timer); 
+    }
+}, [message]);
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
-        setLoading(true);
-        setMessage('');
+    e.preventDefault();
+    setLoading(true);
+    setMessage('');
 
-        try {
-            const response = await fetch('https://test.pearl-developer.com/econ-market/api/user/register', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
+    try {
+        const response = await fetch('https://test.pearl-developer.com/econ-market/api/user/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+        });
+
+        const data = await response.json();
+        console.log("API Response:", data);
+
+        if (data.errors) {
+            const messages = Object.values(data.errors).flat().join(' ');
+            setMessage(messages);
+        } else {
+            setMessage(data.message || 'Signup successful.');
+
+            //  Reset the form 
+            setFormData({
+                email: '',
+                mobile_no: '',
+                address: '',
+                password: '',
+                name: ''
             });
-
-            const data = await response.json();
-            console.log("API Response:", data);
-
-            if (data.errors) {
-                const messages = Object.values(data.errors).flat().join(' ');
-                setMessage(messages);
-            } else {
-                setMessage(data.message || 'Signup failed.');
-            }
-        } catch (error) {
-            console.error("Signup Error:", error.message);
-            setMessage(error.message || "Signup failed.");
         }
-        setLoading(false);
-    };
+    } catch (error) {
+        console.error("Signup Error:", error.message);
+        setMessage(error.message || "Signup failed.");
+    }
+
+    setLoading(false);
+};
 
     return (
         <>
@@ -104,9 +124,6 @@ const SignUp = () => {
                                         </span>
 
                                         {message && (
-                                            // <div style={{ marginTop: '10px', color: message.includes('successful') ? 'green' : 'red' }}>
-                                            //     {message}
-                                            // </div>
                                             <div class="alert alert-success" role="alert">
                                                {message}
                                             </div>

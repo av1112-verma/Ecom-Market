@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { Link ,useNavigate  } from "react-router-dom";
 
 const Login = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState('');
+  const navigate = useNavigate();
 
   const validate = () => {
     const newErrors = {};
@@ -25,23 +28,61 @@ const Login = () => {
     return newErrors;
   };
 
+  
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     setErrors({ ...errors, [e.target.name]: "" });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const formErrors = validate();
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+  const formErrors = validate();
 
-    if (Object.keys(formErrors).length > 0) {
-      setErrors(formErrors);
-    } else {
-      console.log("Login Data:", formData);
-      setSubmitted(true);
-      // You can integrate API call here
+  if (Object.keys(formErrors).length > 0) {
+    setErrors(formErrors);
+  } else {
+    try {
+      const response = await fetch('https://test.pearl-developer.com/econ-market/api/user/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+      console.log("Login Response:", data);
+
+      if (data.status) {
+        localStorage.setItem('isLoggedIn', true); // 🔐 Save login flag
+        setMessage(data.message || 'Login successful!');
+        setSubmitted(true);
+        setFormData({ email: '', password: '' });
+        
+        setTimeout(() => {
+          setSubmitted(false); // Hide success message
+          navigate('/');       // Redirect to homepage
+        }, 1000);
+      } else {
+        setMessage(data.message || 'Login failed');
+      }
+    } catch (error) {
+      console.error('Login Error:', error);
+      setMessage('Something went wrong. Please try again.');
     }
-  };
+  }
+};
+
+
+  
+  useEffect(() => {
+    if (message) {
+      const timer = setTimeout(() => setMessage(''), 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [message]);
+
+  
 
   return (
     <>
@@ -99,7 +140,9 @@ const Login = () => {
                     </div>
 
                     <div className="single-input-box">
-                      <button type="submit">Login</button>
+                      <button type="submit" disabled={loading}>
+                        {loading ? 'Logging in...' : 'Login'}
+                      </button>
                     </div>
 
                     <span className="psw text-white">
@@ -108,22 +151,19 @@ const Login = () => {
                         Sign up
                       </Link>
                     </span>
-
                   </div>
                 </form>
 
-                <div id="status"></div>
+                {message && (
+                  <div className={`alert ${submitted ? 'alert-success' : 'alert-danger'}`} role="alert">
+                    {message}
+                  </div>
+                )}
               </div>
             </div>
           </div>
         </div>
       </section>
-      {submitted && (
-  <div className="alert alert-success fade-in-out" role="alert">
-    Login Successfully
-  </div>
-)}
-
     </>
   );
 };
