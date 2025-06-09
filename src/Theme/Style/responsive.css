@@ -1,10 +1,29 @@
+@media(max-width: 768px) {
+    ._main_contact .row {
+        padding: 50px 20px;
+    }
+
+    .contact-form {
+        padding: 50px 20px;
+    }
+}
+
 @media (max-width:576px) {
     .contact-info {
         flex-direction: column !important;
         gap: 5px !important;
         align-items: flex-start !important;
     }
+
     .sticky-top {
         top: -1px !important;
+    }
+
+    ._main_contact .row {
+        padding: 50px 0px;
+    }
+
+    .contact-section {
+        height: 100%;
     }
 }
