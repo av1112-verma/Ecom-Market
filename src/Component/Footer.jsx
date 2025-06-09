@@ -5,10 +5,12 @@ const Footer = () => {
   { label: 'Home', url: '/' },
   { label: 'Reports', url: '/reports' },
   { label: 'About Us', url: '/about' },
-  { label: 'Custom Research', url: '/custom-research' },
-  { label: 'Subscription', url: '/subscription' },
   { label: 'Career', url: '/career' },
   { label: 'Contact Us', url: '/contact' },
+];
+ const footerLinks2 = [
+  { label: 'Custom Research', url: '/custom-research' },
+  { label: 'Subscription', url: '/subscription' },
   { label: 'Terms & Conditions', url: '/terms' },
   { label: 'Privacy Policy', url: '/privacy' },
   { label: 'Cookie Policy', url: '/cookies' }
@@ -18,7 +20,7 @@ const Footer = () => {
     <footer className="py-3 py-md-5">
       <div className="container">
         <div className="row">
-          <div className='col-md-4'>
+          <div className='col-6 col-md-3'>
             <div className="footer_item">
               <h3 className="footer_heading">LINKS</h3>
               <ul className="list-unstyled">
@@ -32,12 +34,25 @@ const Footer = () => {
               </ul>
             </div>
           </div>
+          <div className='col-6 col-md-3'>
+            <div className="footer_item">
+              <h3 className="footer_heading">LINKS</h3>
+              <ul className="list-unstyled">
+                {footerLinks2.map((link, index) => (
+                  <li key={index} className='nav-item'>
+                    <a href={link.url} className="nav-link">
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
 
-          <div className='col-md-4'>
+          <div className='col-6 col-md-3'>
             <div className="footer_item">
               <h3 className="footer_heading">CONTACT</h3>
-              <p>11th Floor, Rajapushpa Summit<br />
-                Nanakramguda Rd, Financial District, Gachibowli<br />
+              <p>Nanakramguda Rd, Financial District, Gachibowli<br />
                 Hyderabad, Telangana - 500032<br />
                 India</p>
               <p className="mt-4"><i class="fa-solid fa-phone"></i> +1 617-765-2493</p>
@@ -47,7 +62,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className='col-md-4'>
+          <div className='col-md-3'>
             <div className="footer_item">
               <h3 className="footer_heading">JOIN US</h3>
               <p>We are always looking to hire talented individuals with equal and extraordinary proportions of industry expertise, problem solving ability and inclination.</p>
