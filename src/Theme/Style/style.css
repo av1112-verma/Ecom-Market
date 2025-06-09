@@ -283,6 +283,7 @@ footer .footer_item .nav-link {
     padding: 20px;
     border-radius: 0;
 }
+
 .contact-section {
     background-image: url('https://devs.pearl-developer.com/mlt/wp-includes/assets/images/inner/breadcumb.jpg');
     background-size: cover;
@@ -291,18 +292,34 @@ footer .footer_item .nav-link {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative; }
+    position: relative;
+}
 
 .overlay {
     text-align: center;
     color: white;
     background-color: rgba(0, 0, 0, 0.5);
-    padding: 2rem;
+    padding: 25px;
     border-radius: 10px;
+    margin: 10px;
 }
 
-.contact-heading {
-    font-size: 4rem;
-    font-weight: bold;
-    margin: 0;
+@media(max-width: 768px) {
+    ._main_contact .row {
+        padding: 50px 20px;
+    }
+
+    .contact-form {
+        padding: 50px 20px;
+    }
+}
+
+@media(max-width: 576px) {
+    ._main_contact .row {
+        padding: 50px 0px;
+    }
+
+    .contact-section {
+        height: 100%;
+    }
 }
