@@ -1,5 +1,3 @@
-
-
 .navbar {
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
     background-color: transparent;
@@ -451,11 +449,12 @@ footer .footer_item .nav-link {
 .overlay {
     text-align: center;
     color: white;
-    background-color:rgb(0 0 0 / 14%);
+    background-color: rgb(0 0 0 / 14%);
     padding: 25px;
     border-radius: 10px;
     margin: 10px;
 }
+
 .ad_icon_contact {
     width: 60px;
     height: 60px;
@@ -474,11 +473,13 @@ footer .footer_item .nav-link {
     width: 100%;
     border-radius: 10px;
 }
+
 ._main_profile .user_profile {
     background-color: #f4f5f6;
     padding: 10px 10px 10px;
     border-radius: 10px;
 }
+
 ._main_profile .profile_detail {
     display: flex;
     gap: 10px;
@@ -488,12 +489,14 @@ footer .footer_item .nav-link {
     flex-direction: column;
     width: 100%;
 }
+
 .profile_content_section {
     display: flex;
     align-items: flex-start;
     padding: 10px;
     gap: 20px;
 }
+
 ._main_profile .profile_detail .detail_item p {
     font-size: 16px;
     font-weight: 400;
@@ -501,6 +504,7 @@ footer .footer_item .nav-link {
     margin: 0;
     line-height: 24px;
 }
+
 ._main_profile .profile_detail .detail_item h5 {
     font-size: 18px;
     font-weight: 500;
@@ -508,9 +512,11 @@ footer .footer_item .nav-link {
     margin: 0;
     line-height: 30px;
 }
+
 ._main_profile .profile_detail .detail_item h5.user_name {
     color: #f6921e;
 }
+
 button.profile_btn {
     white-space: nowrap;
     border: 1px solid #f6921e;
@@ -520,25 +526,30 @@ button.profile_btn {
     border-radius: 25px;
     transition: 0.5s ease-in-out;
 }
+
 button.profile_btn:hover {
     border: 1px solid #f6921e;
     background-color: #fff;
     color: #f6921e;
 }
+
 .profile_offcanvas form .form-label {
     color: #111;
     font-weight: 500;
     font-size: 14px;
     margin: 0;
 }
+
 .form-control:focus {
     box-shadow: none !important;
     border: 1px solid #f6921e !important;
 }
+
 .form-select:focus {
     box-shadow: none !important;
     border: 1px solid #f6921e !important;
 }
+
 @media(max-width: 768px) {
     ._main_contact .row {
         padding: 50px 20px;
@@ -559,7 +570,7 @@ button.profile_btn:hover {
     }
 }
 
-  
+
 .industry_career .nav-pills .nav-item .nav-link.active::after {
     content: "";
     position: absolute;
@@ -1241,16 +1252,86 @@ span.psw {
     font-size: 18px;
     margin-bottom: 15px;
 }
-._ad_anchor{
+
+._ad_anchor {
     text-decoration: none;
     margin-left: 5px;
     color: #f6921e;
 }
+
 /* press page end */
 
-
-
-
-
 /* ===================== Service Page ========================= */
+/* ===================== press details page ========================= */
+.press_details .title-bar {
+    background-color: #002e5b;
+    color: white;
+    padding: 15px;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 4px;
+}
 
+.press_details .highlight-box {
+    border: 1px solid #ddd;
+    padding: 15px;
+    background: #f9f9f9;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.press_details .btn-green {
+    background: linear-gradient(to bottom, #8dd000, #378a00);
+    color: white;
+    font-weight: bold;
+    border: 3px solid #378a00;
+    padding: 10px 20px;
+    font-size: 16px;
+    position: relative;
+}
+
+.press_details .btn-green::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
+    border: 2px solid white;
+    pointer-events: none;
+}
+
+.press_details .btn-blue {
+    background-color: #1803ff;
+    color: white;
+    font-weight: bold;
+    border: 3px solid #1803ff;
+    padding: 10px 20px;
+    font-size: 16px;
+    position: relative;
+}
+.press_details .btn-blue:hover{
+    background-color: #1803ff;
+    color: white;
+}
+
+.press_details .btn-blue::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
+    border: 2px solid white;
+    pointer-events: none;
+}
+._details_row{
+    padding-top: 20px;
+    border-top: 2px solid grey;
+}
+.sticky_ad{
+    position: sticky;
+    top: 100px;
+}
+
+/* ===================== press details page ========================= */

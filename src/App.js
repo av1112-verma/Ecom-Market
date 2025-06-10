@@ -20,6 +20,7 @@ import Industries from './Pages/industries';
 import PressRelease from './Pages/PressRelease';
 import IndustryDetails from './Pages/Industry_Details';
 import UserProfile from './Pages/Profile';
+import PressDetails from './Pages/PressDetails';
 
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
         <Route path="/press_release" element={<PressRelease />} />
         <Route path="/industry-detail" element={<IndustryDetails />} />
         <Route path="/profile" element={<UserProfile />} />
+        <Route path="/press_details" element={<PressDetails />} />
       </Routes>
       <Footer />
     </Router>
