@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, NavLink ,useNavigate  } from "react-router-dom";
-import { FaInstagram, FaTwitter, FaLinkedinIn } from "react-icons/fa";
+import { FaInstagram, FaTwitter, FaLinkedinIn , FaYoutube  } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
 
 const Header = () => {
@@ -85,10 +85,11 @@ const industryLinks2 = [
           </Link>
         </div>
         <div className="social-icons d-flex gap-2">
-          <Link to={"/"}><FaFacebook className="social-icon" /></Link>
-          <Link to={"/"}><FaInstagram className="social-icon" /></Link>
-          <Link to={"/"}><FaTwitter className="social-icon" /></Link>
-          <Link to={"/"}><FaLinkedinIn className="social-icon" /></Link>
+          <Link to={"https://www.facebook.com/metricwaveinsights"}><FaFacebook className="social-icon" /></Link>
+          <Link to={"https://www.instagram.com/metricwaveinsights/"}><FaInstagram className="social-icon" /></Link>
+          <Link to={"https://x.com/metric_wave"}><FaTwitter className="social-icon" /></Link>
+          <Link to={"https://www.youtube.com/@metricwaveinsights"}><FaYoutube  className="social-icon" /></Link>
+          <Link to={"https://www.linkedin.com/company/metricwave-insights/"}><FaLinkedinIn className="social-icon" /></Link>
         </div>
       </div>
       <nav className={`navbar navbar-expand-lg py-3 sticky-top shadow-sm ${isSticky ? "scrolled-header" : ""}`}>

@@ -1,4 +1,7 @@
 import React from 'react';
+import { Link } from "react-router-dom";
+import { FaInstagram, FaTwitter, FaLinkedinIn , FaYoutube  } from "react-icons/fa";
+import { FaFacebook } from "react-icons/fa";
 
 const Footer = () => {
   const footerLinks = [
@@ -70,12 +73,13 @@ const Footer = () => {
                 <i class="fa-regular fa-envelope me-2"></i><a href="mailto:careers@mordorintelligence.com" className="underline">careers@mordorintelligence.com</a></p>
 
               <h3 className="footer_heading">CONNECT WITH US RIGHT NOW</h3>
-              <ul className="social_links">
-                <li><a href="/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></a></li>
-                <li><a href="/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-square-facebook"></i></a></li>
-                <li><a href="/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-square-x-twitter"></i></a></li>
-                <li><a href="/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-square-instagram"></i></a></li>
-              </ul>
+              <div className="social-icons d-flex gap-2">
+                <Link to={"https://www.facebook.com/metricwaveinsights"}><FaFacebook className="social-icon" /></Link>
+                <Link to={"https://www.instagram.com/metricwaveinsights/"}><FaInstagram className="social-icon" /></Link>
+                <Link to={"https://x.com/metric_wave"}><FaTwitter className="social-icon" /></Link>
+                <Link to={"https://www.youtube.com/@metricwaveinsights"}><FaYoutube  className="social-icon" /></Link>
+                <Link to={"https://www.linkedin.com/company/metricwave-insights/"}><FaLinkedinIn className="social-icon" /></Link>
+              </div>
             </div>
           </div>
         </div>
