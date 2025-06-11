@@ -3,6 +3,8 @@ import Carousel from '../Component/Home/Carousel';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
+
+
   const services = [
     { title: 'Consulting Services', description: 'At Fortune Business Insights, our consulting services are fine-tuned to answer your commercial queries with relevant data derived from trusted industrial sources' },
     { title: 'Tailored Insights', description: 'At Fortune Business Insights, our consulting services are fine-tuned to answer your commercial queries with relevant data derived from trusted industrial sources' },

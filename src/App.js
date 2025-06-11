@@ -40,7 +40,7 @@ function App() {
         <Route path="/forfot-password" element={<ForgotPassword />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/press_release" element={<PressRelease />} />
-        <Route path="/industry-detail" element={<IndustryDetails />} />
+        <Route path="/industries/:slug" element={<IndustryDetails />} />
         <Route path="/profile" element={<UserProfile />} />
         <Route path="/press_details" element={<PressDetails />} />
       </Routes>

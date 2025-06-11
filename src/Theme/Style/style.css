@@ -1007,9 +1007,7 @@ span.psw {
     color: #fff !important;
 }
 
-.navbar-expand-lg .navbar-nav .dropdown-menu li.sub_dropdown:first-child {
-    border-right: 1px solid #06557f;
-}
+
 
 .navbar-expand-lg .navbar-nav .dropdown-menu {
     border: 1px solid #06557f;

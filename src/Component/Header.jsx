@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Link, NavLink ,useNavigate  } from "react-router-dom";
-import { FaInstagram, FaTwitter, FaLinkedinIn , FaYoutube  } from "react-icons/fa";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { FaInstagram, FaTwitter, FaLinkedinIn, FaYoutube } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
 
 const Header = () => {
+  // ============ Sticky Header ============
   const [isSticky, setIsSticky] = useState(false);
 
   useEffect(() => {
@@ -14,6 +15,10 @@ const Header = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // ============ Sticky Header ============
+
+  // ============ Login / Profile ============
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
@@ -29,72 +34,103 @@ const Header = () => {
     setIsLoggedIn(false);
     navigate('/login');
   };
-   useEffect(()=>{
+  useEffect(() => {
 
-    if(localStorage.getItem('isLoggedIn') === true)
-    {
+    if (localStorage.getItem('isLoggedIn') === true) {
       setIsLoggedIn(true);
     }
 
-  },[])
+  }, [])
 
-const industryLinks1 = [
-  { id: 1, menuTitle: "Agriculture", menuLink: "/industry-detail/agriculture" },
-  { id: 2, menuTitle: "Automobile and Transportation", menuLink: "/industry-detail/automobile-and-transportation" },
-  { id: 3, menuTitle: "Aerospace and Defense", menuLink: "/industry-detail/aerospace-and-defense" },
-  { id: 4, menuTitle: "Biotechnology", menuLink: "/industry-detail/biotechnology" },
-  { id: 5, menuTitle: "Chemical and Material", menuLink: "/industry-detail/chemical-and-material" },
-  { id: 6, menuTitle: "Consumer Goods and Services", menuLink: "/industry-detail/consumer-goods-and-services" },
-  { id: 7, menuTitle: "Construction and Real Estate", menuLink: "/industry-detail/construction-and-real-estate" },
-  { id: 8, menuTitle: "Electronics and Semiconductor", menuLink: "/industry-detail/electronics-and-semiconductor" },
-  { id: 9, menuTitle: "Energy and Power", menuLink: "/industry-detail/energy-and-power" },
-  { id: 10, menuTitle: "Education and Training", menuLink: "/industry-detail/education-and-training" },
-  { id: 11, menuTitle: "Food and Beverages", menuLink: "/industry-detail/food-and-beverages" }
-]
-const industryLinks2 = [
- { id: 12, menuTitle: "Financial Services", menuLink: "/industry-detail/financial-services" },
-  { id: 13, menuTitle: "Information Technology and Telecom", menuLink: "/industry-detail/information-technology-and-telecom" },
-  { id: 14, menuTitle: "Industrial and Manufacturing", menuLink: "/industry-detail/industrial-and-manufacturing" },
-  { id: 15, menuTitle: "Insurance", menuLink: "/industry-detail/insurance" },
-  { id: 16, menuTitle: "Machinery and Equipment", menuLink: "/industry-detail/machinery-and-equipment" },
-  { id: 17, menuTitle: "Medical Devices", menuLink: "/industry-detail/medical-devices" },
-  { id: 18, menuTitle: "Media and Entertainment", menuLink: "/industry-detail/media-and-entertainment" },
-  { id: 19, menuTitle: "Pharma and Healthcare", menuLink: "/industry-detail/pharma-and-healthcare" },
-  { id: 20, menuTitle: "Packaging", menuLink: "/industry-detail/packaging" },
-  { id: 21, menuTitle: "Travel, Tourism & Hospitality", menuLink: "/industry-detail/travel-tourism-and-hospitality" },
-  { id: 22, menuTitle: "Sports and Athletics", menuLink: "/industry-detail/sports-and-athletics" }
-]
 
- 
+  // ============ Login / Profile ============
+
+
+  // ============ Industry Menu Api ============
+
+  const [industries, setIndustries] = useState([]);
+
+  useEffect(() => {
+    const fetchIndustries = async () => {
+      try {
+        const response = await fetch('https://test.pearl-developer.com/econ-market/api/industries');
+        const data = await response.json();
+        // The API has "industries" key
+        setIndustries(data.industries);
+      } catch (error) {
+        console.error('Error fetching industries:', error);
+      }
+    };
+
+    fetchIndustries();
+  }, []);
+
+  // ============ Industry Menu Api ============
+
+
+  const [info, setInfo] = useState(null);
+
+  useEffect(() => {
+    const fetchInfo = async () => {
+      try {
+        const response = await fetch('https://test.pearl-developer.com/econ-market/api/info');
+        const data = await response.json();
+        setInfo(data);
+      } catch (error) {
+        console.error('Error fetching info:', error);
+      }
+    };
+
+    fetchInfo();
+  }, []);
 
   return (
     <>
       {/* Top Contact Bar */}
       <div className="top-header d-flex justify-content-between align-items-center px-3 py-2 text-white">
         <div className="contact-info d-flex gap-sm-4 align-sm-items-center">
-          <Link to={"tel:+18125064440"}>
-            <img src="https://flagcdn.com/us.svg" alt="US Flag" width="20" />
-            <i className="fa fa-phone ms-2 me-0"></i> +1 812 506 4440
-          </Link>
-          <Link to={"tel:+917875074426"}>
-            <img src="https://flagcdn.com/in.svg" alt="India Flag" width="20" />
-            <i className="fa fa-phone ms-2 me-0"></i> +91 7875074426
-          </Link>
-          <Link to={"mail:sales@econmarketresearch.com"}>
-            <i className="fa fa-envelope"></i> sales@econmarketresearch.com
-          </Link>
+          {info && (
+            <>
+              <Link to={`tel:+1${info.mobile_no1}`}>
+                <img src="https://flagcdn.com/us.svg" alt="US Flag" width="20" />
+                <i className="fa fa-phone ms-2 me-0"></i> +1 {info.mobile_no1}
+              </Link>
+              <Link to={`tel:+91${info.mobile_no2}`}>
+                <img src="https://flagcdn.com/in.svg" alt="India Flag" width="20" />
+                <i className="fa fa-phone ms-2 me-0"></i> +91 {info.mobile_no2}
+              </Link>
+              <Link to={`mailto:${info.email}`}>
+                <i className="fa fa-envelope"></i> {info.email}
+              </Link>
+            </>
+          )}
         </div>
         <div className="social-icons d-flex gap-2">
-          <Link to={"https://www.facebook.com/metricwaveinsights"}><FaFacebook className="social-icon" /></Link>
-          <Link to={"https://www.instagram.com/metricwaveinsights/"}><FaInstagram className="social-icon" /></Link>
-          <Link to={"https://x.com/metric_wave"}><FaTwitter className="social-icon" /></Link>
-          <Link to={"https://www.youtube.com/@metricwaveinsights"}><FaYoutube  className="social-icon" /></Link>
-          <Link to={"https://www.linkedin.com/company/metricwave-insights/"}><FaLinkedinIn className="social-icon" /></Link>
+          {info && info.social_media && (
+            <>
+              {info.social_media.facebook && (
+                <Link to={info.social_media.facebook} target="_blank"><FaFacebook className="social-icon" /></Link>
+              )}
+              {info.social_media.instagram && (
+                <Link to={info.social_media.instagram} target="_blank"><FaInstagram className="social-icon" /></Link>
+              )}
+              {info.social_media.youtube && (
+                <Link to={info.social_media.youtube} target="_blank"><FaTwitter className="social-icon" /></Link>
+              )}
+              {info.social_media.youtube && (
+                <Link to={info.social_media.youtube} target="_blank"><FaYoutube className="social-icon" /></Link>
+              )}
+              {info.social_media.youtube && (
+                <Link to={info.social_media.youtube} target="_blank"><FaLinkedinIn className="social-icon" /></Link>
+              )}
+            </>
+          )}
         </div>
       </div>
       <nav className={`navbar navbar-expand-lg py-3 sticky-top shadow-sm ${isSticky ? "scrolled-header" : ""}`}>
         <div className="container-fluid">
           <Link className="navbar-brand" to="/"><img src="Images/web_logo_s.png" alt="" /></Link>
+          {/* <Link className="navbar-brand" to="/"><img src={info.logo}  alt={info.site_name} /></Link> */}
           <button
             className="navbar-toggler"
             type="button"
@@ -114,7 +150,7 @@ const industryLinks2 = [
               <li className="nav-item dropdown">
                 <NavLink
                   className={({ isActive }) =>
-                    isActive ? "nav-link dropdown-toggle " : "nav-link dropdown-toggle active" 
+                    isActive ? "nav-link dropdown-toggle " : "nav-link dropdown-toggle active"
                   }
                   to="#"
                   role="button"
@@ -124,26 +160,18 @@ const industryLinks2 = [
                   Industries
                 </NavLink>
                 <ul className="dropdown-menu">
+
                   <li className="sub_dropdown">
                     <ul>
-                      {industryLinks1.map((menu, idx) => (
-                        <li key={idx}>
-                          <Link className="dropdown-item industry_link" id={menu.id} to="/industry-detail">
-                            {menu.menuTitle}
+                      {industries.length > 0 ? industries.map(industry => (
+                        <li key={industry.id}>
+                          <Link className="dropdown-item industry_link" id={industry.id} to={`/industries/${industry.slug}`} >
+                            {industry.name}
                           </Link>
                         </li>
-                      ))}
-                    </ul>
-                  </li>
-                  <li className="sub_dropdown">
-                    <ul>
-                      {industryLinks2.map((menu, idx) => (
-                        <li key={idx}>
-                          <Link className="dropdown-item industry_link" id={menu.id} to="/industry-detail">
-                            {menu.menuTitle}
-                          </Link>
-                        </li>
-                      ))}
+                      )) : (
+                        <p>Loading industries...</p>
+                      )}
                     </ul>
                   </li>
                 </ul>
@@ -162,7 +190,7 @@ const industryLinks2 = [
               </li>
               <li className="nav-item">
                 <NavLink className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} to="/contact">Contact Us</NavLink>
-              </li>              
+              </li>
               {!isLoggedIn ? (
                 <li className="nav-item">
                   <NavLink
@@ -173,34 +201,34 @@ const industryLinks2 = [
                   </NavLink>
                 </li>
               ) : (
-                  <li className="nav-item dropdown profile_menu">
-                    <NavLink
-                      className={({ isActive }) =>
-                        isActive ? "nav-link dropdown-toggle" : "nav-link dropdown-toggle active"
-                      }
-                      to="#"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-expanded="false"
-                    >
-                      Profile
-                    </NavLink>
-                    <ul className="dropdown-menu">
-                      <li className="sub_dropdown w-100">
-                        <ul>
-                          <li className="w-100">
-                            <NavLink to="/profile" style={{textDecoration:"none"}}><img src="https://cdn-icons-png.flaticon.com/128/3135/3135715.png" alt="" />Profile</NavLink>
-                          </li>
-                          <li className="w-100">
-                            <button className="dropdown-item industry_link" onClick={handleLogout}>
-                              Logout
-                            </button>
-                          </li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </li>
-                )}
+                <li className="nav-item dropdown profile_menu">
+                  <NavLink
+                    className={({ isActive }) =>
+                      isActive ? "nav-link dropdown-toggle" : "nav-link dropdown-toggle active"
+                    }
+                    to="#"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Profile
+                  </NavLink>
+                  <ul className="dropdown-menu">
+                    <li className="sub_dropdown w-100">
+                      <ul>
+                        <li className="w-100">
+                          <NavLink to="/profile" style={{ textDecoration: "none" }}><img src="https://cdn-icons-png.flaticon.com/128/3135/3135715.png" alt="" />Profile</NavLink>
+                        </li>
+                        <li className="w-100">
+                          <button className="dropdown-item industry_link" onClick={handleLogout}>
+                            Logout
+                          </button>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              )}
             </ul>
             <form className="search_header" role="search">
               <input
