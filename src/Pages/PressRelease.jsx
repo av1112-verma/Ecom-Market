@@ -1,4 +1,4 @@
-
+import { Link } from 'react-router-dom';
 const PressRelease = () => {
   return (
     <section>
@@ -15,7 +15,7 @@ const PressRelease = () => {
               <p>
                 The global functional beverage market size is expected to stand at USD 225.9 billion in 2025.
                 It is touted to touch a USD 402.46 billion valuation by 2032, displaying a CAGR of 8.6% during
-                the forecast period (2025–2032). <a href="#" className="_ad_anchor"> ...View More</a>
+                the forecast period (2025–2032). <Link to="/press_details" className="_ad_anchor">...View More</Link>
               </p>
             </div>
           </div>
@@ -31,7 +31,7 @@ const PressRelease = () => {
               <p>
                 The global functional beverage market size is expected to stand at USD 225.9 billion in 2025.
                 It is touted to touch a USD 402.46 billion valuation by 2032, displaying a CAGR of 8.6% during
-                the forecast period (2025–2032). <a href="#" className="_ad_anchor"> ...View More</a>
+                the forecast period (2025–2032). <Link to="/press_details" className="_ad_anchor">...View More</Link>
               </p>
             </div>
           </div>
@@ -47,7 +47,7 @@ const PressRelease = () => {
               <p>
                 The global functional beverage market size is expected to stand at USD 225.9 billion in 2025.
                 It is touted to touch a USD 402.46 billion valuation by 2032, displaying a CAGR of 8.6% during
-                the forecast period (2025–2032). <a href="#" className="_ad_anchor"> ...View More</a>
+                the forecast period (2025–2032). <Link to="/press_details" className="_ad_anchor">...View More</Link>
               </p>
             </div>
           </div>
