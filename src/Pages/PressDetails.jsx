@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 const PressDetails = () => {
     return (
@@ -33,7 +34,7 @@ const PressDetails = () => {
                             <div className="col-md-8">
                                 <p>
                                     The global{' '}
-                                    <a href="#" className="text-primary">
+                                    <a href="/" className="text-primary">
                                         functional beverage market
                                     </a>{' '}
                                     size is expected to stand at USD 225.9 billion in 2025. It is touted to touch a USD 402.46 billion valuation by 2032, displaying a CAGR of 8.6% during the forecast period (2025-2032).
