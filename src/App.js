@@ -42,7 +42,7 @@ function App() {
         <Route path="/press_release" element={<PressRelease />} />
         <Route path="/industries/:slug" element={<IndustryDetails />} />
         <Route path="/profile" element={<UserProfile />} />
-        <Route path="/press_details" element={<PressDetails />} />
+        <Route path="/press_details/:slug" element={<PressDetails />} />
       </Routes>
       <Footer />
     </Router>
