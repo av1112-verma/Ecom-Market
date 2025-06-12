@@ -1,6 +1,6 @@
-import React from 'react';
+import React ,{useState , useEffect} from 'react';
 import { Link } from "react-router-dom";
-import { FaInstagram, FaTwitter, FaLinkedinIn , FaYoutube  } from "react-icons/fa";
+import { FaInstagram, FaTwitter, FaLinkedinIn, FaYoutube } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
 
 const Footer = () => {
@@ -18,6 +18,27 @@ const Footer = () => {
   { label: 'Privacy Policy', url: '/privacy' },
   { label: 'Cookie Policy', url: '/cookies' }
 ];
+
+// ============ Website social info  Api ============
+
+  const [info, setInfo] = useState(null);
+
+  useEffect(() => {
+    const fetchInfo = async () => {
+      try {
+        const response = await fetch('https://test.pearl-developer.com/econ-market/api/info');
+        const data = await response.json();
+        setInfo(data);
+      } catch (error) {
+        console.error('Error fetching info:', error);
+      }
+    };
+
+    fetchInfo();
+  }, []);
+
+  // ============ Website social info  Api ============
+
 
   return (
     <footer className="py-3 py-md-5">
@@ -55,13 +76,29 @@ const Footer = () => {
           <div className='col-6 col-md-3'>
             <div className="footer_item">
               <h3 className="footer_heading">CONTACT</h3>
-              <p>Nanakramguda Rd, Financial District, Gachibowli<br />
-                Hyderabad, Telangana - 500032<br />
-                India</p>
-              <p className="mt-4"><i class="fa-solid fa-phone"></i> +1 617-765-2493</p>
-              <p className="mt-2"><i class="fa-regular fa-envelope me-2"></i><a href="mailto:info@mordorintelligence.com" className="underline">info@mordorintelligence.com</a></p>
-              <p className="mt-2">Media Inquiries:<br />
-                <i class="fa-regular fa-envelope me-2"></i><a href="mailto:media@mordorintelligence.com" className="underline">media@mordorintelligence.com</a></p>
+              {info ? (
+                <>
+                  <p>{info.address}</p>
+                  <p className="mt-4">
+                    <i className="fa-solid fa-phone"></i> +1 {info.mobile_no1}
+                  </p>
+                  <p className="mt-2">
+                    <i className="fa-regular fa-envelope me-2"></i>
+                    <a href={`mailto:${info.email}`} className="underline">
+                      {info.email}
+                    </a>
+                  </p>
+                  <p className="mt-2">
+                    Media Inquiries:<br />
+                    <i className="fa-regular fa-envelope me-2"></i>
+                    <a href={`mailto:${info.email}`} className="underline">
+                      {info.email}
+                    </a>
+                  </p>
+                </>
+              ) : (
+                <p>Loading contact info...</p>
+              )}
             </div>
           </div>
 
@@ -69,17 +106,38 @@ const Footer = () => {
             <div className="footer_item">
               <h3 className="footer_heading">JOIN US</h3>
               <p>We are always looking to hire talented individuals with equal and extraordinary proportions of industry expertise, problem solving ability and inclination.</p>
-              <p className="mt-2">Interested? Please email us:<br />
-                <i class="fa-regular fa-envelope me-2"></i><a href="mailto:careers@mordorintelligence.com" className="underline">careers@mordorintelligence.com</a></p>
+              {info ? (
+                <>
+                  <p className="mt-2">
+                    Interested? Please email us:<br />
+                    <i className="fa-regular fa-envelope me-2"></i>
+                    <a href={`mailto:${info.email}`} className="underline">
+                      {info.email}
+                    </a>
+                  </p>
 
-              <h3 className="footer_heading">CONNECT WITH US RIGHT NOW</h3>
-              <div className="social-icons d-flex gap-2">
-                <Link to={"https://www.facebook.com/metricwaveinsights"}><FaFacebook className="social-icon" /></Link>
-                <Link to={"https://www.instagram.com/metricwaveinsights/"}><FaInstagram className="social-icon" /></Link>
-                <Link to={"https://x.com/metric_wave"}><FaTwitter className="social-icon" /></Link>
-                <Link to={"https://www.youtube.com/@metricwaveinsights"}><FaYoutube  className="social-icon" /></Link>
-                <Link to={"https://www.linkedin.com/company/metricwave-insights/"}><FaLinkedinIn className="social-icon" /></Link>
-              </div>
+                  <h3 className="footer_heading">CONNECT WITH US RIGHT NOW</h3>
+                  <div className="social-icons d-flex gap-2">
+                    {info.social_media.facebook && (
+                      <Link to={info.social_media.facebook} target="_blank"><FaFacebook className="social-icon" /></Link>
+                    )}
+                    {info.social_media.instagram && (
+                      <Link to={info.social_media.instagram} target="_blank"><FaInstagram className="social-icon" /></Link>
+                    )}
+                    {info.social_media.youtube && (
+                      <Link to={info.social_media.youtube} target="_blank"><FaTwitter className="social-icon" /></Link>
+                    )}
+                    {info.social_media.youtube && (
+                      <Link to={info.social_media.youtube} target="_blank"><FaYoutube className="social-icon" /></Link>
+                    )}
+                    {info.social_media.youtube && (
+                      <Link to={info.social_media.youtube} target="_blank"><FaLinkedinIn className="social-icon" /></Link>
+                    )}
+                  </div>
+                </>
+              ) : (
+                <p>Loading social links...</p>
+              )}
             </div>
           </div>
         </div>

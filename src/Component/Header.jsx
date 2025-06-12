@@ -67,6 +67,7 @@ const Header = () => {
 
   // ============ Industry Menu Api ============
 
+  // ============ Website social info  Api ============
 
   const [info, setInfo] = useState(null);
 
@@ -83,6 +84,8 @@ const Header = () => {
 
     fetchInfo();
   }, []);
+
+  // ============ Website social info  Api ============
 
   return (
     <>
