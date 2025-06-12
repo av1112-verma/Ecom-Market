@@ -124,14 +124,14 @@ const Footer = () => {
                     {info.social_media.instagram && (
                       <Link to={info.social_media.instagram} target="_blank"><FaInstagram className="social-icon" /></Link>
                     )}
-                    {info.social_media.youtube && (
-                      <Link to={info.social_media.youtube} target="_blank"><FaTwitter className="social-icon" /></Link>
+                    {info.social_media.twitter && (
+                      <Link to={info.social_media.twitter} target="_blank"><FaTwitter className="social-icon" /></Link>
                     )}
                     {info.social_media.youtube && (
                       <Link to={info.social_media.youtube} target="_blank"><FaYoutube className="social-icon" /></Link>
                     )}
-                    {info.social_media.youtube && (
-                      <Link to={info.social_media.youtube} target="_blank"><FaLinkedinIn className="social-icon" /></Link>
+                    {info.social_media.linkedin && (
+                      <Link to={info.social_media.linkedin} target="_blank"><FaLinkedinIn className="social-icon" /></Link>
                     )}
                   </div>
                 </>

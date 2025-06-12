@@ -117,14 +117,14 @@ const Header = () => {
               {info.social_media.instagram && (
                 <Link to={info.social_media.instagram} target="_blank"><FaInstagram className="social-icon" /></Link>
               )}
-              {info.social_media.youtube && (
-                <Link to={info.social_media.youtube} target="_blank"><FaTwitter className="social-icon" /></Link>
+              {info.social_media.twitter && (
+                <Link to={info.social_media.twitter} target="_blank"><FaTwitter className="social-icon" /></Link>
               )}
               {info.social_media.youtube && (
                 <Link to={info.social_media.youtube} target="_blank"><FaYoutube className="social-icon" /></Link>
               )}
-              {info.social_media.youtube && (
-                <Link to={info.social_media.youtube} target="_blank"><FaLinkedinIn className="social-icon" /></Link>
+              {info.social_media.linkedin && (
+                <Link to={info.social_media.linkedin} target="_blank"><FaLinkedinIn className="social-icon" /></Link>
               )}
             </>
           )}
@@ -132,8 +132,8 @@ const Header = () => {
       </div>
       <nav className={`navbar navbar-expand-lg py-3 sticky-top shadow-sm ${isSticky ? "scrolled-header" : ""}`}>
         <div className="container-fluid">
-          <Link className="navbar-brand" to="/"><img src="Images/web_logo_s.png" alt="" /></Link>
-          {/* <Link className="navbar-brand" to="/"><img src={info.logo}  alt={info.site_name} /></Link> */}
+          {/* <Link className="navbar-brand" to="/"><img src="Images/web_logo_s.png" alt="" /></Link> */}
+          <Link className="navbar-brand" to="/"><img src={info?.logo} alt={info?.site_name} /></Link>
           <button
             className="navbar-toggler"
             type="button"
