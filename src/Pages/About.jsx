@@ -5,10 +5,13 @@ import { FaQuestion } from "react-icons/fa";
 const AboutSection = () => {
   return (
     <>
+    <section>
+      <img src="Images/About_banner.png" alt="" className="w-100" />
+    </section>
       <section className="about-section py-5 border-bottom">
         <div className="container text-center">
           <div className="d-flex align-items-center gap-3">
-            <img src="Images/coat-07.webp" alt="Tie Icon" className="mb-4" style={{ maxWidth: "100px" }} />
+            {/* <img src="Images/coat-07.webp" alt="Tie Icon" className="mb-4" style={{ maxWidth: "100px" }} /> */}
             <h2 className="fw-bold text-primary">About MetricWave Insights</h2>
           </div>
           <p className="text-muted">

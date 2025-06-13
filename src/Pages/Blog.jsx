@@ -38,14 +38,18 @@ const BlogList = () => {
       <div className="container">
         <div className="row">
           {blogData.length === 0 ? (
-            <p>Loading blogs...</p>
+            <div className="d-flex justify-content-center align-items-center" style={{height: '300px'}}>
+              <div className="spinner-border text-primary" role="status">
+                <span className="visually-hidden">Loading...</span>
+              </div>
+            </div>
           ) : (
             blogData.map((blog) => {
               const isExpanded = expandedIds.has(blog.id);
               return (
                 <div className="col-sm-6 col-md-4 col-lg-3 mb-3" key={blog.id}>
                   <div className="blog_card_item">
-                    <Link to={`/blog/${blog.slug}`}>
+                    <Link to={`/blog-detail/${blog.slug}`}>
                       <img src={blog.image} alt={blog.name} />
                     </Link>
                     <div className="blog-contain">
@@ -87,7 +91,7 @@ const BlogList = () => {
                           <span>Admin</span> {/* You can replace if you have author info */}
                         </span>
                       </div>
-                      <Link to={`/blog/${blog.slug}`}>
+                      <Link to={`/blog-detail/${blog.slug}`}>
                         <h3>{blog.name}</h3>
                       </Link>
 
@@ -95,9 +99,9 @@ const BlogList = () => {
                         {parse(blog.description)}
                       </p>
 
-                      <span className="toggle-link" onClick={() => toggleExpand(blog.id)}>
-                        {isExpanded ? "Show less" : "Show more"}
-                      </span>
+                      <Link to={`/blog-detail/${blog.slug}`} className="toggle-link" onClick={() => toggleExpand(blog.id)}>
+                        {isExpanded ? "Show less" : "View more"}
+                      </Link>
                     </div>
                   </div>
                 </div>
