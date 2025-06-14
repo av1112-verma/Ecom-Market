@@ -1537,3 +1537,50 @@ background-color: #fff;
     color: #f6921e;
     margin-bottom: 15px;
 }
+
+.form-check {
+    display: block;
+    min-height: 1.5rem;
+    padding-left: 1.5em;
+    margin-bottom: .125rem;
+    display: flex !important;
+    gap: 10px;
+    align-items: center;
+}
+.contact-form form input[type=checkbox] {
+    height: auto;
+    padding: 10px;
+}
+.career_content h2 {
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 40px;
+    margin-bottom: 20px;
+}
+.career_content h2 .metric {
+    color: #043059;
+}
+.career_content h2 .insight {
+    color: #00878e;
+}
+.career_content p {
+    font-size: 16px;
+    color: #5c5c5c;
+    text-align: left;
+}
+.career_data h5 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #f6921e;
+}
+.career_data ul li {
+    margin-bottom: 10px;
+}
+.career_data ul {
+    list-style: none;
+    padding: 0;
+}
+.career_data ul li strong {
+    color: #f6921e !important;
+    margin-right: 10px;
+}
