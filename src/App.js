@@ -22,6 +22,7 @@ import IndustryDetails from './Pages/Industry_Details';
 import UserProfile from './Pages/Profile';
 import PressDetails from './Pages/PressDetails';
 import BlogDetails from './Pages/Blog-Detail';
+import Request_Details from './Pages/Request_Details';
 
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
         <Route path="/profile" element={<UserProfile />} />
         <Route path="/press_details/:slug" element={<PressDetails />} />
         <Route path="/blog-detail/:slug" element={<BlogDetails />} />
+        <Route path="/request-details" element={<Request_Details />} />
       </Routes>
       <Footer />
     </Router>

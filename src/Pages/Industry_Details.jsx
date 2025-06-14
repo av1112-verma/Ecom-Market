@@ -75,7 +75,9 @@ const Industry_Details = () => {
                       </div>
                     </p>
                     <div className="card-buttons">
-                      <button className="btn blue">Request Free Sample</button>
+                      <Link to="/request-details" className="btn blue">
+                        Request Free Sample
+                      </Link>
                       <button className="btn green">Buy Now</button>
                     </div>
                   </div>
