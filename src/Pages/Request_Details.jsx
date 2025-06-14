@@ -144,7 +144,7 @@ function Request_Details() {
                                         <h5 className='ad_main_head my-2 text-white'>Related Reports</h5>
 
                                     </div>
-                                    <ul className="list-group">
+                                    <ul className="list-group related-report-list">
                                         <li className="related-report-item">
                                             <p>Compost Market Size, Share, Trends, Growth, and Industry Analysis, By Type (Green Compost, Food Wast...Compost Market Size, Share, Trends, Growth, and Industry Analysis, By Type (Green Compost, Food Wast...</p>
                                         </li>

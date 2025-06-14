@@ -1579,7 +1579,7 @@ span.psw {
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
-    overflow: hidden;
+    /* overflow: hidden; */
     text-overflow: ellipsis;
 }
 
@@ -1743,4 +1743,11 @@ a.animated-underline:hover::after {
     color: #f6921e !important;
     margin-right: 10px;
 
+}
+
+
+.related-report-list {
+    max-height: 330px;
+    overflow-y: scroll;
+    scrollbar-width: thin;
 }
